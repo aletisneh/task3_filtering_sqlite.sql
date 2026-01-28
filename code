@@ -1,0 +1,36 @@
+-- Task 3: Filtering Data Using WHERE, AND, OR, LIKE (SQLite)
+
+CREATE TABLE students (
+    id INTEGER PRIMARY KEY,
+    name TEXT,
+    email TEXT,
+    age INTEGER,
+    city TEXT
+);
+
+INSERT INTO students (id, name, email, age, city) VALUES
+(1, 'Rahul Sharma', 'rahul@gmail.com', 21, 'Hyderabad'),
+(2, 'Sneha Reddy', 'sneha@gmail.com', 20, 'Bangalore'),
+(3, 'Amit Kumar', 'amit@gmail.com', 22, 'Delhi'),
+(4, 'Priya Singh', 'priya@yahoo.com', 19, 'Hyderabad'),
+(5, 'Arjun Patel', 'arjun@gmail.com', 23, NULL);
+
+SELECT * FROM students WHERE age > 20;
+
+SELECT * FROM students WHERE age > 20 AND city = 'Hyderabad';
+
+SELECT * FROM students WHERE city = 'Delhi' OR city = 'Bangalore';
+
+SELECT * FROM students WHERE name LIKE 'A%';
+
+SELECT * FROM students WHERE email LIKE '%@gmail.com';
+
+SELECT * FROM students WHERE city IN ('Hyderabad', 'Delhi');
+
+SELECT * FROM students WHERE age BETWEEN 20 AND 22;
+
+SELECT * FROM students WHERE city IS NULL;
+
+SELECT name AS student_name, email AS student_email
+FROM students
+WHERE age > 20;
